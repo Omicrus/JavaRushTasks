@@ -9,43 +9,25 @@ import java.util.List;
 
 public class Solution {
 
-    private static final List<String> notes = new ArrayList<>();
-
     public static void main(String[] args) {
 
-        ThreadNote thread1 = new ThreadNote();
-        ThreadNote thread2 = new ThreadNote();
-
-
-        thread1.start();
-        thread2.start();
-
-        try {
-            thread1.join();
-            thread2.join();
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(notes);
-
-
     }
 
-    public static synchronized void addNote(int index, String note) {
+    public static class Note {
 
-        for (int i = 0; i <100 ; i++) {
-            notes.add(index + i, note);
+        public final List<String> notes = new ArrayList<String>();
+
+        public void addNote(int index, String note) {
             System.out.println("Сейчас будет добавлена заметка [" + note + "] На позицию " + index);
+            notes.add(index, note);
+            System.out.println("Уже добавлена заметка [" + note + "]");
+        }
+
+        public void removeNote(int index) {
+            System.out.println("Сейчас будет удалена заметка с позиции " + index);
+            String note = notes.remove(index);
+            System.out.println("Уже удалена заметка [" + note + "] с позиции " + index);
         }
     }
-
-    public static class ThreadNote extends Thread {
-        @Override
-        public void  run() {
-                addNote(0, getName());
-        }
-    }
-
 
 }
