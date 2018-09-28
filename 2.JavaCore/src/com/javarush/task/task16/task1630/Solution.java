@@ -74,7 +74,6 @@ public class Solution {
                 BufferedReader br = new BufferedReader(new InputStreamReader(fil));
                 String line = "";
 
-
                 while ((line = br.readLine()) != null) {
                     list.add(line);
                 }
