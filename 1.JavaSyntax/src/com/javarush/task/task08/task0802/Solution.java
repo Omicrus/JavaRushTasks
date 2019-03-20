@@ -25,9 +25,9 @@ public class Solution {
 
         Iterator<HashMap.Entry<String, String>> iter = map.entrySet().iterator();
         while (iter.hasNext()) {
-            System.out.println(iter); // aici se va vedea doar referinta la un element din map
+          //  System.out.println(iter); // aici se va vedea doar referinta la un element din map
             Map.Entry<String, String> pair = iter.next();
-            System.out.println(pair);// vom vedea ca rezultat perechea ce o da ca referinta iterul
+          //  System.out.println(pair);// vom vedea ca rezultat perechea ce o da ca referinta iterul
             // si se va afisa in mod normal
             /////// prin metoda de mai jos putem scoate din pereche: cheia sau valoarea si le prelucram.
             String key = pair.getKey();
